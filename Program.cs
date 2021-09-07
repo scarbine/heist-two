@@ -62,6 +62,8 @@ namespace heist_two
             List<IRobber> rolodex = new List<IRobber>{
                 John, James, Jeff, Jimmy, Seth, Hector
             };
+
+            List<IRobber> crew = new List<IRobber>();
             void ListPlayers()
             {
                 int index = 0;
@@ -69,7 +71,17 @@ namespace heist_two
             {
                 r.PerformSkill(PNFP);
                 Console.WriteLine($"{index} ) {r.ListSpeciality}");
-                
+                index++;
+            };
+            }
+            void ListCrew()
+            {
+                Console.WriteLine($"{crew.Count()}");
+                int index = 0;
+            foreach (IRobber c in crew)
+            {
+               
+                Console.WriteLine($"{index} ) {c.ListSpeciality}");
                 index++;
             };
             }
@@ -178,9 +190,11 @@ namespace heist_two
                 ListPlayers();
                 // BankReport();
                 NewTeamMember();
-                List<IRobber> crew = new List<IRobber>();
                 ListPlayers();
-
+                
+//  This block needs to be fixed so that it added the proper player chosen to the crew list. 
+// Currently tryin to figure out how to access that with the current indexing method.
+// May need to refactor the way that indexing is happeing on the roledex list
                 while(true)
                 {
                 Console.WriteLine("Please enter the number of the operative you would like to add.");
@@ -190,7 +204,10 @@ namespace heist_two
                     break ;
                 }
                 Console.WriteLine($"You Chose : {selection}");
+                // This currently just adds John to the crew list
+                crew.Add(John);
                 }
+                ListCrew();
 
 
 
