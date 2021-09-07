@@ -32,7 +32,7 @@ namespace heist_two
             
             };
             Hacker Hector = new Hacker{
-                Name = "John",
+                Name = "Hector",
                 SkillLevel = 50,
                 PercentageCut = 20
             
@@ -44,7 +44,7 @@ namespace heist_two
                 PercentageCut = 10
             };
             LockSpecialist Seth = new LockSpecialist{
-                Name = "James",
+                Name = "Seth",
                 SkillLevel = 20,
                 PercentageCut = 10
             };
@@ -54,7 +54,7 @@ namespace heist_two
                 PercentageCut = 13
             };
             Muscle Jimmy = new Muscle{
-                Name = "Jeff",
+                Name = "Jimmy",
                 SkillLevel = 23,
                 PercentageCut = 13
             };
@@ -64,10 +64,13 @@ namespace heist_two
             };
             void ListPlayers()
             {
+                int index = 0;
             foreach (IRobber r in rolodex)
             {
                 r.PerformSkill(PNFP);
-                Console.WriteLine($"{r.Name} has a skill level of {r.SkillLevel} and gets a {r.PercentageCut} percent cut.");
+                Console.WriteLine($"{index} ) {r.ListSpeciality}");
+                
+                index++;
             };
             }
             var bankPropertiesList = new List<int>{PNFP.AlarmScore, PNFP.SecurityGuardScore, PNFP.VaultScore};
@@ -173,7 +176,7 @@ namespace heist_two
                 // BankReport();
                 Recon();
                 ListPlayers();
-                BankReport();
+                // BankReport();
                 NewTeamMember();
                 ListPlayers();
 

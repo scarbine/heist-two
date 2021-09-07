@@ -12,5 +12,13 @@ namespace heist_two
         {
             bank.VaultScore -= SkillLevel;
         }
+
+         public string ListSpeciality
+        {
+            get{
+            return $"{Name} is a master of the Locks with a skill level of {SkillLevel} and gets {PercentageCut} of the total take.";
+            }
+        }
+
     }
 }
