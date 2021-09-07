@@ -14,7 +14,7 @@ namespace heist_two
             int vaultRan = new Random().Next(0,100);
             int securityRan = new Random().Next(0,100);
             int cashRan = new Random().Next(50000,1000000);
-            
+
             Bank PNFP = new Bank{
                 Name = "PNFP",
                 AlarmScore =alarmRan,
@@ -24,10 +24,35 @@ namespace heist_two
             };
 
             var bankPropertiesList = new List<int>{PNFP.AlarmScore, PNFP.SecurityGuardScore, PNFP.VaultScore};
+            Recon();
+        void Recon()
+          {
+                if (bankPropertiesList.Max() == PNFP.AlarmScore)
+                {
+                    Console.WriteLine("Most Secure: Alarm");
+                }
+                else if (bankPropertiesList.Max() == PNFP.SecurityGuardScore)
+                {
+                    Console.WriteLine("Most Secure: Security Gaurd");
+                }
+                else
+                {
+                    Console.WriteLine("Most Secure: Vault");
+                }
 
-            Console.WriteLine($"Most Secure: {bankPropertiesList.Max()}");
-            Console.WriteLine($"Least Secure: {bankPropertiesList.Min()}");
-            
+                if (bankPropertiesList.Min() == PNFP.AlarmScore)
+                {
+                    Console.WriteLine("Least Secure: Alarm");
+                }
+                else if (bankPropertiesList.Min() == PNFP.SecurityGuardScore)
+                {
+                    Console.WriteLine("Least Secure: Security Gaurd");
+                }
+                else
+                {
+                    Console.WriteLine("Least Secure: Vault");
+                }
+          } 
 
             Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore}");
         }
