@@ -31,8 +31,19 @@ namespace heist_two
                 PercentageCut = 20
             
             };
+            Hacker Hector = new Hacker{
+                Name = "John",
+                SkillLevel = 50,
+                PercentageCut = 20
+            
+            };
 
             LockSpecialist James = new LockSpecialist{
+                Name = "James",
+                SkillLevel = 20,
+                PercentageCut = 10
+            };
+            LockSpecialist Seth = new LockSpecialist{
                 Name = "James",
                 SkillLevel = 20,
                 PercentageCut = 10
@@ -42,9 +53,14 @@ namespace heist_two
                 SkillLevel = 23,
                 PercentageCut = 13
             };
+            Muscle Jimmy = new Muscle{
+                Name = "Jeff",
+                SkillLevel = 23,
+                PercentageCut = 13
+            };
 
             List<IRobber> rolodex = new List<IRobber>{
-                John, James, Jeff
+                John, James, Jeff, Jimmy, Seth, Hector
             };
             void ListPlayers()
             {
@@ -93,49 +109,57 @@ namespace heist_two
 
             void NewTeamMember()
             {
-                Console.WriteLine("Please enter a name for the new team member.");
-                string _newMember = Console.ReadLine();
-                Console.WriteLine("Please choose specialty by number.");
-                Console.WriteLine("1) Hacker (Disables Alarm)");
-                Console.WriteLine("2) Muscle (Disarms Gaurd)");
-                Console.WriteLine("3) Lock Specialist (Cracks Vault)");
-                int _specialty = int.Parse(Console.ReadLine());
-                Console.WriteLine("Please enter skill level. 0-100");
-                int _skillLevel = int.Parse(Console.ReadLine());
-                Console.WriteLine("What percent is the member asking? 0-100");
-                int _take = int.Parse(Console.ReadLine());
-                Console.WriteLine(_newMember);
-                Console.WriteLine(_take);
-                Console.WriteLine(_specialty);
-                Console.WriteLine(_skillLevel);
+                while (true)
+                {
+                    Console.WriteLine("Please enter a name for the new team member.");
+                    string _newMember = Console.ReadLine();
+                    if (_newMember == "")
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Please choose specialty by number.");
+                    Console.WriteLine("1) Hacker (Disables Alarm)");
+                    Console.WriteLine("2) Muscle (Disarms Gaurd)");
+                    Console.WriteLine("3) Lock Specialist (Cracks Vault)");
+                    int _specialty = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Please enter skill level. 0-100");
+                    int _skillLevel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What percent is the member asking? 0-100");
+                    int _take = int.Parse(Console.ReadLine());
+                    Console.WriteLine(_newMember);
+                    Console.WriteLine(_take);
+                    Console.WriteLine(_specialty);
+                    Console.WriteLine(_skillLevel);
 
-                if (_specialty == 1)
-                {
-                    Hacker h = new Hacker{
-                        Name = _newMember,
-                        SkillLevel = _skillLevel,
-                        PercentageCut = _take
-                    };
-                    rolodex.Add(h);
-                }
-                else if (_specialty == 2)
-                {
-                    Muscle m = new Muscle{
-                        Name = _newMember,
-                        SkillLevel = _skillLevel,
-                        PercentageCut = _take
-                    };
-                    rolodex.Add(m);
+                    if (_specialty == 1)
+                    {
+                        Hacker h = new Hacker{
+                            Name = _newMember,
+                            SkillLevel = _skillLevel,
+                            PercentageCut = _take
+                        };
+                        rolodex.Add(h);
+                    }
+                    else if (_specialty == 2)
+                    {
+                        Muscle m = new Muscle{
+                            Name = _newMember,
+                            SkillLevel = _skillLevel,
+                            PercentageCut = _take
+                        };
+                        rolodex.Add(m);
 
-                }
-                else
-                {
-                    LockSpecialist l = new LockSpecialist{
-                        Name = _newMember,
-                        SkillLevel = _skillLevel,
-                        PercentageCut = _take
-                    };
-                    rolodex.Add(l);
+                    }
+                    else
+                    {
+                        LockSpecialist l = new LockSpecialist{
+                            Name = _newMember,
+                            SkillLevel = _skillLevel,
+                            PercentageCut = _take
+                        };
+                        rolodex.Add(l);
+                    }
+
                 }
                 
 
@@ -144,6 +168,8 @@ namespace heist_two
             void Game()
             {
                 Console.WriteLine("Welcome to the Heist 2!");
+                int _teamTotal = rolodex.Count();
+                Console.WriteLine ($"The team currently has {_teamTotal} members.");
                 // BankReport();
                 Recon();
                 ListPlayers();
