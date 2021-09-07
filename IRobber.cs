@@ -10,7 +10,7 @@ namespace heist_two
 
         public void PerformSkill(Bank bank)
         {
-            Console.WriteLine("Preform Skill is connected")
+            Console.WriteLine("Preform Skill is connected");
         }
 
     }

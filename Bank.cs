@@ -3,7 +3,9 @@ using System;
 namespace heist_two
 {
     public class Bank
-    {
+    { 
+        public string Name {get; set;}
+        
         public int CashOnHand {get; set;}
 
         public int AlarmScore {get;set;}
