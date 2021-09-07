@@ -16,15 +16,46 @@ namespace heist_two
             int cashRan = new Random().Next(50000,1000000);
 
             Bank PNFP = new Bank{
-                Name = "PNFP",
+                Name = "Tennessee Bank",
                 AlarmScore =alarmRan,
                 CashOnHand = cashRan,
                 SecurityGuardScore = securityRan,
                 VaultScore = vaultRan
             };
 
+        
+
+            Hacker John = new Hacker{
+                Name = "John",
+                SkillLevel = 50,
+                PercentageCut = 20
+            
+            };
+
+            LockSpecialist James = new LockSpecialist{
+                Name = "James",
+                SkillLevel = 20,
+                PercentageCut = 10
+            };
+            Muscle Jeff = new Muscle{
+                Name = "Jeff",
+                SkillLevel = 23,
+                PercentageCut = 13
+            };
+
+            List<IRobber> rolodex = new List<IRobber>{
+                John, James, Jeff
+            };
+            void ListPlayers()
+            {
+            foreach (IRobber r in rolodex)
+            {
+                r.PerformSkill(PNFP);
+                Console.WriteLine($"{r.Name} has a skill level of {r.SkillLevel} and gets a {r.PercentageCut} percent cut.");
+            };
+            }
             var bankPropertiesList = new List<int>{PNFP.AlarmScore, PNFP.SecurityGuardScore, PNFP.VaultScore};
-            Recon();
+          
         void Recon()
           {
                 if (bankPropertiesList.Max() == PNFP.AlarmScore)
@@ -54,7 +85,75 @@ namespace heist_two
                 }
           } 
 
-            Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore}");
+            
+            void BankReport()
+            {
+                Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore} {PNFP.IsSecure}");
+            }
+
+            void NewTeamMember()
+            {
+                Console.WriteLine("Please enter a name for the new team member.");
+                string _newMember = Console.ReadLine();
+                Console.WriteLine("Please choose specialty by number.");
+                Console.WriteLine("1) Hacker (Disables Alarm)");
+                Console.WriteLine("2) Muscle (Disarms Gaurd)");
+                Console.WriteLine("3) Lock Specialist (Cracks Vault)");
+                int _specialty = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please enter skill level. 0-100");
+                int _skillLevel = int.Parse(Console.ReadLine());
+                Console.WriteLine("What percent is the member asking? 0-100");
+                int _take = int.Parse(Console.ReadLine());
+                Console.WriteLine(_newMember);
+                Console.WriteLine(_take);
+                Console.WriteLine(_specialty);
+                Console.WriteLine(_skillLevel);
+
+                if (_specialty == 1)
+                {
+                    Hacker h = new Hacker{
+                        Name = _newMember,
+                        SkillLevel = _skillLevel,
+                        PercentageCut = _take
+                    };
+                    rolodex.Add(h);
+                }
+                else if (_specialty == 2)
+                {
+                    Muscle m = new Muscle{
+                        Name = _newMember,
+                        SkillLevel = _skillLevel,
+                        PercentageCut = _take
+                    };
+                    rolodex.Add(m);
+
+                }
+                else
+                {
+                    LockSpecialist l = new LockSpecialist{
+                        Name = _newMember,
+                        SkillLevel = _skillLevel,
+                        PercentageCut = _take
+                    };
+                    rolodex.Add(l);
+                }
+                
+
+            }
+            Game();
+            void Game()
+            {
+                Console.WriteLine("Welcome to the Heist 2!");
+                // BankReport();
+                Recon();
+                ListPlayers();
+                BankReport();
+                NewTeamMember();
+                ListPlayers();
+
+
+            }
         }
+
     }
 }
