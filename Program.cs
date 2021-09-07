@@ -43,11 +43,11 @@ namespace heist_two
                 PercentageCut = 13
             };
 
-            List<IRobber> robbers = new List<IRobber>{
+            List<IRobber> rolodex = new List<IRobber>{
                 John, James, Jeff
             };
 
-            foreach (IRobber r in robbers)
+            foreach (IRobber r in rolodex)
             {
                 r.PerformSkill(PNFP);
                 Console.WriteLine($"{r.Name} has a skill level of {r.SkillLevel} and gets a {r.PercentageCut} percent cut.");
@@ -87,7 +87,7 @@ namespace heist_two
             BankReport();
             void BankReport()
             {
-                Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore}");
+                Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore} {PNFP.IsSecure}");
             }
         }
 
