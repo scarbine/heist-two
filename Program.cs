@@ -23,6 +23,8 @@ namespace heist_two
                 VaultScore = vaultRan
             };
 
+            BankReport();
+
             Hacker John = new Hacker{
                 Name = "John",
                 SkillLevel = 50,
@@ -47,6 +49,7 @@ namespace heist_two
 
             foreach (IRobber r in robbers)
             {
+                r.PerformSkill(PNFP);
                 Console.WriteLine($"{r.Name} has a skill level of {r.SkillLevel} and gets a {r.PercentageCut} percent cut.");
             };
 
@@ -81,7 +84,12 @@ namespace heist_two
                 }
           } 
 
-            Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore}");
+            BankReport();
+            void BankReport()
+            {
+                Console.WriteLine($"{PNFP.Name} has {PNFP.CashOnHand} cash on hand with an Alarm Score of {PNFP.AlarmScore}. Security Score of {PNFP.SecurityGuardScore} and a vault score of {PNFP.VaultScore}");
+            }
         }
+
     }
 }
