@@ -121,7 +121,7 @@ namespace heist_two
                 else if (_specialty == 2)
                 {
                     Muscle m = new Muscle{
-                         Name = _newMember,
+                        Name = _newMember,
                         SkillLevel = _skillLevel,
                         PercentageCut = _take
                     };
@@ -131,7 +131,7 @@ namespace heist_two
                 else
                 {
                     LockSpecialist l = new LockSpecialist{
-                         Name = _newMember,
+                        Name = _newMember,
                         SkillLevel = _skillLevel,
                         PercentageCut = _take
                     };
