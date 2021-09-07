@@ -16,11 +16,38 @@ namespace heist_two
             int cashRan = new Random().Next(50000,1000000);
 
             Bank PNFP = new Bank{
-                Name = "PNFP",
+                Name = "Tennessee Bank",
                 AlarmScore =alarmRan,
                 CashOnHand = cashRan,
                 SecurityGuardScore = securityRan,
                 VaultScore = vaultRan
+            };
+
+            Hacker John = new Hacker{
+                Name = "John",
+                SkillLevel = 50,
+                PercentageCut = 20
+            
+            };
+
+            LockSpecialist James = new LockSpecialist{
+                Name = "James",
+                SkillLevel = 20,
+                PercentageCut = 10
+            };
+            Muscle Jeff = new Muscle{
+                Name = "Jeff",
+                SkillLevel = 23,
+                PercentageCut = 13
+            };
+
+            List<IRobber> robbers = new List<IRobber>{
+                John, James, Jeff
+            };
+
+            foreach (IRobber r in robbers)
+            {
+                Console.WriteLine($"{r.Name} has a skill level of {r.SkillLevel} and gets a {r.PercentageCut} percent cut.");
             };
 
             var bankPropertiesList = new List<int>{PNFP.AlarmScore, PNFP.SecurityGuardScore, PNFP.VaultScore};
