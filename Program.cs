@@ -62,14 +62,26 @@ namespace heist_two
             List<IRobber> rolodex = new List<IRobber>{
                 John, James, Jeff, Jimmy, Seth, Hector
             };
+
+            List<IRobber> crew = new List<IRobber>();
             void ListPlayers()
             {
                 int index = 0;
             foreach (IRobber r in rolodex)
             {
-                r.PerformSkill(PNFP);
+                // r.PerformSkill(PNFP);
                 Console.WriteLine($"{index} ) {r.ListSpeciality}");
-                
+                index++;
+            };
+            }
+            void ListCrew()
+            {
+                Console.WriteLine($"{crew.Count()}");
+                int index = 0;
+            foreach (IRobber c in crew)
+            {
+               
+                Console.WriteLine($"{index} ) {c.ListSpeciality}");
                 index++;
             };
             }
@@ -179,6 +191,38 @@ namespace heist_two
                 // BankReport();
                 NewTeamMember();
                 ListPlayers();
+                
+//  This block needs to be fixed so that it added the proper player chosen to the crew list. 
+// Currently tryin to figure out how to access that with the current indexing method.
+// May need to refactor the way that indexing is happeing on the roledex list
+                while(true)
+                {
+                Console.WriteLine("Please enter the number of the operative you would like to add.");
+                string selection = Console.ReadLine();
+                if(selection == "")
+                {
+                    break ;
+                }
+                Console.WriteLine($"You Chose : {selection}");
+                // This currently just adds John to the crew list
+                crew.Add(John);
+                }
+                ListCrew();
+
+                foreach (IRobber c in crew)
+                {
+                    c.PerformSkill(PNFP);
+                }
+
+                if (PNFP.IsSecure)
+                {
+                    Console.WriteLine("You were busted!");
+                }
+                else
+                {
+                    Console.WriteLine("You win!");
+                }
+
 
 
             }
