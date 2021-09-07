@@ -12,5 +12,12 @@ namespace heist_two
         {
             bank.AlarmScore -= SkillLevel;
         }
+
+           public string ListSpeciality
+        {
+            get{
+            return $"{Name} is a lazy hacker with a skill level of {SkillLevel} and gets {PercentageCut} of the total take.";
+            }
+        }
     }
 }

@@ -10,7 +10,13 @@ namespace heist_two
 
         public void PerformSkill(Bank bank)
         {
-            Console.WriteLine("Preform Skill should be overridden by Specialists");
+          
+        }
+        public string ListSpeciality {
+            get
+            {
+                return "";
+            }
         }
 
     }

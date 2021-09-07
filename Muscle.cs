@@ -12,5 +12,12 @@ namespace heist_two
         {
             bank.SecurityGuardScore -= SkillLevel;
         }
+
+          public string ListSpeciality
+        {
+            get{
+            return $"{Name} is super strong with a skill level of {SkillLevel} and gets {PercentageCut} of the total take.";
+            }
+        }
     }
 }
