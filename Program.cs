@@ -178,7 +178,20 @@ namespace heist_two
                 ListPlayers();
                 // BankReport();
                 NewTeamMember();
+                List<IRobber> crew = new List<IRobber>();
                 ListPlayers();
+
+                while(true)
+                {
+                Console.WriteLine("Please enter the number of the operative you would like to add.");
+                string selection = Console.ReadLine();
+                if(selection == "")
+                {
+                    break ;
+                }
+                Console.WriteLine($"You Chose : {selection}");
+                }
+
 
 
             }
