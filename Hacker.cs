@@ -7,7 +7,7 @@ namespace heist_two
     public string Name {get; set;}
         public int SkillLevel {get; set;}
         public int PercentageCut {get; set;}
-        public int Index {get; set;} = 0;
+        // public int Index {get; set;} = 0;
 
         public void PerformSkill(Bank bank)
         {

@@ -69,7 +69,7 @@ namespace heist_two
                 int index = 0;
             foreach (IRobber r in rolodex)
             {
-                r.PerformSkill(PNFP);
+                // r.PerformSkill(PNFP);
                 Console.WriteLine($"{index} ) {r.ListSpeciality}");
                 index++;
             };
@@ -208,6 +208,20 @@ namespace heist_two
                 crew.Add(John);
                 }
                 ListCrew();
+
+                foreach (IRobber c in crew)
+                {
+                    c.PerformSkill(PNFP);
+                }
+
+                if (PNFP.IsSecure)
+                {
+                    Console.WriteLine("You were busted!");
+                }
+                else
+                {
+                    Console.WriteLine("You win!");
+                }
 
 
 
