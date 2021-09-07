@@ -31,8 +31,19 @@ namespace heist_two
                 PercentageCut = 20
             
             };
+            Hacker Hector = new Hacker{
+                Name = "John",
+                SkillLevel = 50,
+                PercentageCut = 20
+            
+            };
 
             LockSpecialist James = new LockSpecialist{
+                Name = "James",
+                SkillLevel = 20,
+                PercentageCut = 10
+            };
+            LockSpecialist Seth = new LockSpecialist{
                 Name = "James",
                 SkillLevel = 20,
                 PercentageCut = 10
@@ -42,9 +53,14 @@ namespace heist_two
                 SkillLevel = 23,
                 PercentageCut = 13
             };
+            Muscle Jimmy = new Muscle{
+                Name = "Jeff",
+                SkillLevel = 23,
+                PercentageCut = 13
+            };
 
             List<IRobber> rolodex = new List<IRobber>{
-                John, James, Jeff
+                John, James, Jeff, Jimmy, Seth, Hector
             };
             void ListPlayers()
             {
@@ -144,6 +160,8 @@ namespace heist_two
             void Game()
             {
                 Console.WriteLine("Welcome to the Heist 2!");
+                int _teamTotal = rolodex.Count();
+                Console.WriteLine ($"The team currently has {_teamTotal} members.");
                 // BankReport();
                 Recon();
                 ListPlayers();
